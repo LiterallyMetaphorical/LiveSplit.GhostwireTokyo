@@ -1,7 +1,8 @@
 
 state("GWT")
 {
-    int loading : 0x552CEB8; 
+    int loadingNormal : 0x552EF70; 
+    int loadingFT     : 0x57294D8; 
 }
 
 init 
@@ -66,12 +67,13 @@ onStart
 
 isLoading
 {
-    return current.loading != 1;
+    return current.loadingNormal != 1 || current.loadingFT != 0;
 }
 
 update
   {
-    print(current.loading.ToString());
+    print(current.loadingNormal.ToString());
+    print(current.loadingFT.ToString());
   }
 
 
