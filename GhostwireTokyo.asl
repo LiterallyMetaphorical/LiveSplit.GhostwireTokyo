@@ -1,8 +1,10 @@
 
 state("GWT")
 {
-    int loadingNormal : 0x552EF70; 
-    int loadingFT     : 0x57294D8; 
+    // flips between 1 in game and 2 on loads
+    int loadingNormal : 0x55211C0; 
+    // flips between 5 and 15 on FT
+    int loadingFT     : 0x53F0CD4; 
 }
 
 init 
@@ -67,7 +69,7 @@ onStart
 
 isLoading
 {
-    return current.loadingNormal != 1 || current.loadingFT != 0;
+    return current.loadingNormal == 2 || current.loadingFT == 15;
 }
 
 update
