@@ -1,10 +1,9 @@
-
 state("GWT")
 {
     // flips between 1 in game and 2 on loads
     int loadingNormal : 0x55211C0; 
-    // flips between 5 and 15 on FT
-    int loadingFT     : 0x53F0CD4; 
+    // 0 in game & 112 while Fast Travelling as well as a couple specific cutscene - these cutscenes are now removed on purpose since this issue wasn't discovered for a couple months.
+    int loadingFT     : 0x57077D8; 
 }
 
 init 
@@ -69,7 +68,7 @@ onStart
 
 isLoading
 {
-    return current.loadingNormal == 2 || current.loadingFT == 15;
+    return current.loadingNormal == 2 || current.loadingFT == 112;
 }
 
 update
